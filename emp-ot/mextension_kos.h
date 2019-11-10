@@ -1,5 +1,5 @@
-#ifndef OT_M_EXTENSION_H__
-#define OT_M_EXTENSION_H__
+#ifndef OT_M_EXTENSION_KOS_H__
+#define OT_M_EXTENSION_KOS_H__
 #include "emp-ot/ot.h"
 #include "emp-ot/co.h"
 
@@ -8,28 +8,28 @@
  */
 namespace emp {
 template<typename IO>
-class MOTExtension: public OTExtension<IO, OTCO, emp::MOTExtension> { public:
+class MOTExtension_KOS: public OTExtension<IO, OTCO, emp::MOTExtension_KOS> { public:
 	block *open_data = nullptr;
 	bool committing = false;
 	char dgst[Hash::DIGEST_SIZE];
-	using OTExtension<IO, OTCO, emp::MOTExtension>::send_pre;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::block_s;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::recv_pre;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::io;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::extended_r;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::qT;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::tT;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::prg;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::padded_length;
-	using OTExtension<IO, OTCO, emp::MOTExtension>::block_size;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::send_pre;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::block_s;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::recv_pre;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::io;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::extended_r;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::qT;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::tT;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::prg;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::padded_length;
+	using OTExtension<IO, OTCO, emp::MOTExtension_KOS>::block_size;
 
 	TCCRH tccrh;
-	MOTExtension(IO * io, bool committing = false, int ssp = 40) :
-		OTExtension<IO, OTCO, emp::MOTExtension>(io, ssp) {
+	MOTExtension_KOS(IO * io, bool committing = false, int ssp = 40) :
+		OTExtension<IO, OTCO, emp::MOTExtension_KOS>(io, ssp) {
 			this->committing = committing;
 		}
 
-	~MOTExtension() {
+	~MOTExtension_KOS() {
 		delete_array_null(open_data);
 	}
 
@@ -304,4 +304,4 @@ class MOTExtension: public OTExtension<IO, OTCO, emp::MOTExtension> { public:
 
 /**@}*/
 }
-#endif// OT_M_EXTENSION_H__
+#endif// OT_M_EXTENSION_KOS_H__
